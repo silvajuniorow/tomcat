@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  tomcat:
+    build:
+      context: .
+      dockerfile:  Dockerfile
+    container_name: tomcat
+    restart: always
+    ports:
+      - 8080:8080
+      - 8443:8443
+    volumes:
+      # CATALINA_BASE | CATALINA_HOME
+      - ./tomcat:/usr/local/tomcat/webapps
+      # - ./server.xml:/usr/local/tomcat/conf/server.xml
